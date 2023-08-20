@@ -1,0 +1,590 @@
+     A*%%TS  SD  20230106  164755  RAM1008     REL-V7R5M0  5770-WDS
+     A*%%EC
+     A                                      DSPSIZ(24 80 *DS3)
+     A          R DLOGIN
+     A*%%TS  SD  20230102  181031  RAM1008     REL-V7R5M0  5770-WDS
+     A                                      CA03(03 'Exit')
+     A                                      RTNCSRLOC(*RECNAME &AREC &AFLD)
+     A                                      OVERLAY
+     A                                  2  2'Workstation'
+     A                                      COLOR(WHT)
+     A                                  1 33'Bank Application'
+     A                                  1 72DATE
+     A                                      EDTCDE(Y)
+     A                                      COLOR(WHT)
+     A                                  2 72TIME
+     A                                      COLOR(WHT)
+     A            AREC          10A  H
+     A            AFLD          10A  H
+     A                                  9 17'User ID:'
+     A                                 11 17'Password:'
+     A            A_UID          8A  B  9 31DSPATR(UL)
+     A  13                                  DSPATR(PC)
+     A                                      CHECK(LC)
+     A  53                                  ERRMSG('Please Enter Your User ID .-
+     A                                      ..' 53)
+     A            A_PASS         8A  B 11 31
+     A  14                                  DSPATR(PC)
+     A                                      CHECK(LC)
+     A                                      DSPATR(CS)
+     A                                      DSPATR(ND)
+     A  54                                  ERRMSG('Please Enter Your Password -
+     A                                      ...' 54)
+     A                                 23  2'F3 - Exit'
+     A                                      COLOR(BLU)
+     A                                 23 14'Enter - Proceed'
+     A                                      COLOR(BLU)
+     A                                  1  2USER
+     A                                      COLOR(WHT)
+     A          R DMNMENU
+     A*%%TS  SD  20230102  161710  RAM1008     REL-V7R5M0  5770-WDS
+     A                                      CA03(03 'Exit')
+     A                                      CA12(12 'cancel')
+     A                                      OVERLAY
+     A                                  1  2USER
+     A                                      COLOR(WHT)
+     A                                  1 36'Main Menu'
+     A                                  1 73DATE
+     A                                      EDTCDE(Y)
+     A                                      COLOR(WHT)
+     A                                  2 73TIME
+     A                                      COLOR(WHT)
+     A                                  5  2'1. Accounts Menu'
+     A                                  7  2'2. Transactions Menu'
+     A                                 18  2'Type the Option, Press Enter:'
+     A                                      COLOR(BLU)
+     A            MM_SELECT      1Y 0B 18 32DSPATR(UL)
+     A                                      DSPATR(PC)
+     A                                      CHECK(FE)
+     A                                      EDTCDE(4)
+     A                                      COLOR(WHT)
+     A  53                                  ERRMSG('Not Valid Option ...' 53)
+     A                                 23  3'F3 - Exit'
+     A                                      COLOR(BLU)
+     A                                 23 15'F12 - Cancel'
+     A                                      COLOR(BLU)
+     A                                 23 30'Enter - Proceed'
+     A                                      COLOR(BLU)
+     A          R DACTMST
+     A*%%TS  SD  20230102  183644  RAM1008     REL-V7R5M0  5770-WDS
+     A                                      CA03(03 'Exit')
+     A                                      CA12(12 'cancel')
+     A                                      OVERLAY
+     A                                  1  2USER
+     A                                      COLOR(WHT)
+     A                                  1 73DATE
+     A                                      EDTCDE(Y)
+     A                                      COLOR(WHT)
+     A                                  2 73TIME
+     A                                      COLOR(WHT)
+     A                                 18  2'Type the Option, Press Enter:'
+     A                                      COLOR(BLU)
+     A            AM_SELECT      1Y 0B 18 32DSPATR(UL)
+     A                                      DSPATR(PC)
+     A                                      CHECK(FE)
+     A                                      EDTCDE(4)
+     A                                      COLOR(WHT)
+     A  53                                  ERRMSG('Not Valid Option ...' 53)
+     A                                 23  3'F3 - Exit'
+     A                                      COLOR(BLU)
+     A                                 23 15'F12 - Cancel'
+     A                                      COLOR(BLU)
+     A                                 23 30'Enter - Proceed'
+     A                                      COLOR(BLU)
+     A                                  1 34'Account Master'
+     A                                  5  2'1. Add new Account'
+     A                                  7  2'2. Edit Existing Account'
+     A                                  9  2'3. View Existing Account'
+     A          R DADDACT
+     A*%%TS  SD  20230106  164755  RAM1008     REL-V7R5M0  5770-WDS
+     A                                      CA03(03 'Exit')
+     A                                      CA12(12 'Cancel')
+     A                                      CA05(05 'Refresh')
+     A                                      CF04(04 'Prompt')
+     A                                      RTNCSRLOC(*RECNAME &CREC &CFLD)
+     A                                      OVERLAY
+     A                                  1  2USER
+     A                                      COLOR(WHT)
+     A                                  1 72DATE
+     A                                      EDTCDE(Y)
+     A                                      COLOR(WHT)
+     A                                  2 72TIME
+     A                                      COLOR(WHT)
+     A            CREC          10A  H
+     A            CFLD          10A  H
+     A                                 23  2'F3 - Exit'
+     A                                      COLOR(BLU)
+     A                                 23 14'F12 - Cancel'
+     A                                      COLOR(BLU)
+     A                                 23 29'Enter - Proceed'
+     A                                      COLOR(BLU)
+     A                                  4  2'Account Number:'
+     A                                  6  2'Branch Name:'
+     A                                  4 45'Account Type:'
+     A                                  6 45'Customer DOB:'
+     A                                 14  2'Address1:'
+     A                                 16  2'Address2:'
+     A                                 12  2'City:'
+     A                                 12 45'State:'
+     A                                  8 45'Pin Code:'
+     A                                 18  2'Email:'
+     A                                 10 45'Phone Number:'
+     A            AD_ACNUM      12Y 0O  4 18DSPATR(UL)
+     A                                      EDTCDE(4)
+     A                                  8  2'First Name:'
+     A                                 10  2'Last Name:'
+     A            AD_BRANCH     25A  B  6 18DSPATR(UL)
+     A  14                                  DSPATR(PC)
+     A                                      CHECK(FE)
+     A                                      CHECK(LC)
+     A  54                                  ERRMSG('Enter Your Name Correctly .-
+     A                                      ..' 54)
+     A  32                                  DSPATR(PR)
+     A            AD_FNAME      25A  B  8 18DSPATR(UL)
+     A  16                                  DSPATR(PC)
+     A  32                                  DSPATR(PR)
+     A                                      CHECK(FE)
+     A                                      CHECK(LC)
+     A  56                                  ERRMSG('Name Should Be Correct Form-
+     A                                      at ...' 56)
+     A            AD_LNAME      25A  B 10 18DSPATR(UL)
+     A  18                                  DSPATR(PC)
+     A  32                                  DSPATR(PR)
+     A                                      CHECK(FE)
+     A                                      CHECK(LC)
+     A  58                                  ERRMSG('Name Should Be In Correct F-
+     A                                      ormat ...' 58)
+     A            AD_MOBILE     10Y 0B 10 59DSPATR(UL)
+     A  19                                  DSPATR(PC)
+     A  32                                  DSPATR(PR)
+     A                                      CHECK(FE)
+     A                                      EDTCDE(4)
+     A  59                                  ERRMSG('Invalid Mobile Number ...' -
+     A                                      59)
+     A                                      RANGE(1000000000 9999999999)
+     A            AD_ADRES1     50A  B 14 18DSPATR(UL)
+     A  22                                  DSPATR(PC)
+     A  32                                  DSPATR(PR)
+     A                                      CHECK(FE)
+     A                                      CHECK(LC)
+     A  62                                  ERRMSG('Invalid Address ...' 62)
+     A            AD_ADRES2     50A  B 16 18DSPATR(UL)
+     A  23                                  DSPATR(PC)
+     A  32                                  DSPATR(PR)
+     A                                      CHECK(FE)
+     A                                      CHECK(LC)
+     A            AD_EMAIL      50A  B 18 18DSPATR(UL)
+     A  24                                  DSPATR(PC)
+     A  32                                  DSPATR(PR)
+     A                                      CHECK(FE)
+     A                                      CHECK(LC)
+     A  63                                  ERRMSG('Invalid Email ID ...' 63)
+     A            AD_ACTYPE      2A  B  4 59DSPATR(UL)
+     A  13                                  DSPATR(PC)
+     A                                      CHECK(FE)
+     A  53                                  ERRMSG('Select Valid Account Type F-
+     A                                      ield Value ...' 53)
+     A                                      DSPATR(PR)
+     A            AD_DOB         8Y 0B  6 59EDTCDE(Y)
+     A                                      EDTMSK('  &  &    ')
+     A  15                                  DSPATR(PC)
+     A  32                                  DSPATR(PR)
+     A                                      CHECK(FE)
+     A  55                                  ERRMSG('Blank / Invalid Date Format-
+     A                                       ...' 55)
+     A            AD_STATE      20A  B 12 59DSPATR(UL)
+     A  21                                  DSPATR(PC)
+     A  32                                  DSPATR(PR)
+     A                                      CHECK(FE)
+     A                                      CHECK(LC)
+     A  61                                  ERRMSG('Invalid State Name ...' 61)
+     A            AD_CITY       20A  B 12 18DSPATR(UL)
+     A  20                                  DSPATR(PC)
+     A  32                                  DSPATR(PR)
+     A                                      CHECK(FE)
+     A                                      CHECK(LC)
+     A  60                                  ERRMSG('Invalid City Name ...' 60)
+     A            AD_PINCODE     6Y 0B  8 59DSPATR(UL)
+     A  17                                  DSPATR(PC)
+     A  32                                  DSPATR(PR)
+     A                                      CHECK(FE)
+     A                                      EDTCDE(4)
+     A  57                                  ERRMSG('Incorrect Pincode ...' 57)
+     A                                      RANGE(100000 999999)
+     A                                 16 12'(opt)'
+     A                                      COLOR(BLU)
+     A            SUBMIT         6A  O 20 29
+     A  71                                  DSPATR(RI)
+     A                                      DSPATR(UL)
+     A  31                                  DSPATR(PC)
+     A                                      DFTVAL('SUBMIT')
+     A            AD_HEADING    25A  O  1 28
+     A                                  4 63'(F4-PROMPT)'
+     A                                      COLOR(BLU)
+     A          R AC_TYP
+     A*%%TS  SD  20230103  150517  RAM1008     REL-V7R5M0  5770-WDS
+     A                                      WINDOW(5 56 6 15)
+     A            GEN            2Y 0B  2  2SNGCHCFLD
+     A                                      CHOICE(1 '>SAVING ')
+     A                                      CHOICE(2 '>CURRENT')
+     A                                      CHOICE(3 '>R.DEPOSIT')
+     A                                      CHOICE(4 '>F.DEPOSIT')
+     A          R DSELACT
+     A*%%TS  SD  20230104  180850  RAM1008     REL-V7R5M0  5770-WDS
+     A                                      CA03(03 'Exit')
+     A                                      CA12(12 'cancel')
+     A                                      OVERLAY
+     A                                  1  2USER
+     A                                      COLOR(WHT)
+     A                                  1 72DATE
+     A                                      EDTCDE(Y)
+     A                                      COLOR(WHT)
+     A                                  2 72TIME
+     A                                      COLOR(WHT)
+     A                                 23  2'F3 - Exit'
+     A                                      COLOR(BLU)
+     A                                 23 14'F12 - Cancel'
+     A                                      COLOR(BLU)
+     A                                 23 29'Enter - Proceed'
+     A                                      COLOR(BLU)
+     A            SA_OPTION      4A  O  2 39DSPATR(UL)
+     A                                      COLOR(WHT)
+     A                                  1 34'Select Account'
+     A                                 10 24'Account Number:'
+     A            SA_ACNUM      12Y 0B 10 41DSPATR(UL)
+     A  13                                  DSPATR(PC)
+     A                                      CHECK(FE)
+     A                                      EDTCDE(4)
+     A  53                                  ERRMSG('Invalid Account Number ...'-
+     A                                       53)
+     A  54                                  ERRMSG('Enter Your Account Number .-
+     A                                      ..' 54)
+     A          R DTXNMST
+     A*%%TS  SD  20230106  084809  RAM1008     REL-V7R5M0  5770-WDS
+     A                                      CA03(03 'Exit')
+     A                                      CA12(12 'Cancel')
+     A                                      OVERLAY
+     A                                  1  2USER
+     A                                      COLOR(WHT)
+     A                                  1 73DATE
+     A                                      EDTCDE(Y)
+     A                                      COLOR(WHT)
+     A                                  2 73TIME
+     A                                      COLOR(WHT)
+     A                                 18  2'Type the Option, Press Enter:'
+     A                                      COLOR(BLU)
+     A            TM_SELECT      1Y 0B 18 32DSPATR(UL)
+     A                                      DSPATR(PC)
+     A                                      CHECK(FE)
+     A                                      EDTCDE(4)
+     A                                      COLOR(WHT)
+     A  53                                  ERRMSG('Not Valid Option ...' 53)
+     A                                 23  3'F3 - Exit'
+     A                                      COLOR(BLU)
+     A                                 23 15'F12 - Cancel'
+     A                                      COLOR(BLU)
+     A                                 23 30'Enter - Proceed'
+     A                                      COLOR(BLU)
+     A                                  6  2'1. Add new Transaction'
+     A                                  8  2'2. Edit Existing Transaction'
+     A                                 10  2'3. View Existing Transaction'
+     A                                  1 32'Transaction Master'
+     A                                 12  2'4. Delete Transactions'
+     A          R DADDTXN
+     A*%%TS  SD  20230106  062345  RAM1008     REL-V7R5M0  5770-WDS
+     A                                      CA03(03 'Exit')
+     A                                      CA12(12 'Cancel')
+     A                                      CF04(04 'Prompt')
+     A                                      RTNCSRLOC(*RECNAME &BREC &BFLD)
+     A                                      OVERLAY
+     A                                  1  2USER
+     A                                      COLOR(WHT)
+     A                                  1 72DATE
+     A                                      EDTCDE(Y)
+     A                                      COLOR(WHT)
+     A                                  2 72TIME
+     A                                      COLOR(WHT)
+     A            BREC          10A  H
+     A            BFLD          10A  H
+     A                                 23  2'F3 - Exit'
+     A                                      COLOR(BLU)
+     A                                 23 14'F12 - Cancel'
+     A                                      COLOR(BLU)
+     A                                 23 29'Enter - Proceed'
+     A                                      COLOR(BLU)
+     A                                  3  9'Account Number:'
+     A            SUBMIT         6A  O 21 26
+     A  71                                  DSPATR(RI)
+     A                                      DSPATR(UL)
+     A  31                                  DSPATR(PC)
+     A                                      DFTVAL('SUBMIT')
+     A            AT_HEADING    25A  O  1 28
+     A            AT_ACNUM      12Y 0B  3 33DSPATR(UL)
+     A  13                                  DSPATR(PC)
+     A                                      CHECK(FE)
+     A                                      EDTCDE(4)
+     A  53                                  ERRMSG('Enter Valid Account Number -
+     A                                      ...' 53)
+     A  51                                  DSPATR(PR)
+     A                                  5  9'Transaction Type:'
+     A                                  7  9'Transaction Date:'
+     A                                  9  9'Transaction Amount:'
+     A                                 11  9'Transaction Time:'
+     A                                 13  9'Transaction Branch:'
+     A                                 15  9'From Account:'
+     A                                 17  9'To Account:'
+     A                                 19  9'Transaction Status:'
+     A            AT_TTYPE       2A  B  5 33DSPATR(UL)
+     A  14                                  DSPATR(PC)
+     A  32                                  DSPATR(PR)
+     A                                      CHECK(FE)
+     A  54                                  ERRMSG('Invalid Transaction Type ..-
+     A                                      .' 54)
+     A            AT_TDATE       8Y 0B  7 33EDTCDE(Y)
+     A                                      EDTMSK('  &  &    ')
+     A  15                                  DSPATR(PC)
+     A  32                                  DSPATR(PR)
+     A                                      CHECK(FE)
+     A  55                                  ERRMSG('Invalid Transaction Date Fo-
+     A                                      rmat ...' 55)
+     A            AT_TAMOUNT    15Y 0B  9 33DSPATR(UL)
+     A  16                                  DSPATR(PC)
+     A  32                                  DSPATR(PR)
+     A                                      CHECK(FE)
+     A  56                                  ERRMSG('Invalid Transaction amount -
+     A                                      / Blank Field ...' 56)
+     A                                      EDTWRD('RS               ')
+     A            AT_TBRANCH    25A  B 13 33DSPATR(UL)
+     A  18                                  DSPATR(PC)
+     A  32                                  DSPATR(PR)
+     A                                      CHECK(FE)
+     A                                      CHECK(LC)
+     A  58                                  ERRMSG('Blank Field / Invalid Branc-
+     A                                      h Name ...' 58)
+     A            AT_FACNT      15Y 0B 15 33DSPATR(UL)
+     A  19                                  DSPATR(PC)
+     A  32                                  DSPATR(PR)
+     A                                      CHECK(FE)
+     A                                      EDTCDE(4)
+     A  59                                  ERRMSG('Invalid Account Number ...'-
+     A                                       59)
+     A  63                                  ERRMSG('Invalid A/c No. With This T-
+     A                                      ransaction Type ...' 63)
+     A            AT_TOACNT     15Y 0B 17 33DSPATR(UL)
+     A  20                                  DSPATR(PC)
+     A  32                                  DSPATR(PR)
+     A                                      CHECK(FE)
+     A                                      EDTCDE(4)
+     A  60                                  ERRMSG('Invalid A/C Number ...' 60)
+     A  62                                  ERRMSG('Should Not Be Same As From--
+     A                                      A/c' 62)
+     A  64                                  ERRMSG('Invalid A/c No. With This T-
+     A                                      ransaction Type ...' 64)
+     A            AT_TSTATUS     1A  B 19 33DSPATR(UL)
+     A  21                                  DSPATR(PC)
+     A  32                                  DSPATR(PR)
+     A                                      CHECK(FE)
+     A  61                                  ERRMSG('Invalid Transaction Status -
+     A                                      ...' 61)
+     A                                      VALUES('F' 'S')
+     A            AT_TTIME       8A  B 11 33
+     A  17                                  DSPATR(PC)
+     A  32                                  DSPATR(PR)
+     A  57                                  ERRMSG('Blank Field / Invalid Time -
+     A                                      Format ...' 57)
+     A                                      CHECK(FE)
+     A          R TN_TYP
+     A*%%TS  SD  20230104  190540  RAM1008     REL-V7R5M0  5770-WDS
+     A                                      WINDOW(5 34 4 13)
+     A            TNT            2Y 0B  2  2SNGCHCFLD
+     A                                      CHOICE(1 '>CREDIT ')
+     A                                      CHOICE(2 '>DEBIT')
+     A          R DSELTXN
+     A*%%TS  SD  20230106  055857  RAM1008     REL-V7R5M0  5770-WDS
+     A                                      CA03(03 'Exit')
+     A                                      CA12(12 'cancel')
+     A                                      RTNCSRLOC(*RECNAME &AREC &AFLD)
+     A                                      OVERLAY
+     A                                  1  2USER
+     A                                      COLOR(WHT)
+     A                                  1 72DATE
+     A                                      EDTCDE(Y)
+     A                                      COLOR(WHT)
+     A                                  2 72TIME
+     A                                      COLOR(WHT)
+     A            AREC          10A  H
+     A            AFLD          10A  H
+     A                                 23  3'F3 - Exit'
+     A                                      COLOR(BLU)
+     A                                 23 15'F12 - Cancel'
+     A                                      COLOR(BLU)
+     A                                 23 30'Enter - Proceed'
+     A                                      COLOR(BLU)
+     A                                 10 24'Account Number:'
+     A            ET_TRNUM      12Y 0B 12 45DSPATR(UL)
+     A  14                                  DSPATR(PC)
+     A                                      CHECK(FE)
+     A                                      EDTCDE(4)
+     A  54                                  ERRMSG('Record Not Exist In Databas-
+     A                                      e...' 54)
+     A                                 12 24'Transaction Number:'
+     A            ET_ACNUM      12Y 0B 10 45DSPATR(UL)
+     A  13                                  DSPATR(PC)
+     A                                      CHECK(FE)
+     A                                      EDTCDE(4)
+     A  53                                  ERRMSG('Invalid Account Number ...'-
+     A                                       53)
+     A                                  1 33'Edit Transaction'
+     A            ENTER          5   O 15 35
+     A  71                                  DSPATR(UL)
+     A  31                                  DSPATR(PC)
+     A                                      COLOR(WHT)
+     A                                      DFTVAL('ENTER')
+     A          R DDSPTXN
+     A*%%TS  SD  20230106  084400  RAM1008     REL-V7R5M0  5770-WDS
+     A                                      CA03(03 'Exit')
+     A                                      CA12(12 'cancel')
+     A                                      OVERLAY
+     A                                  1  2USER
+     A                                      COLOR(WHT)
+     A                                  1 72DATE
+     A                                      EDTCDE(Y)
+     A                                      COLOR(WHT)
+     A                                  2 72TIME
+     A                                      COLOR(WHT)
+     A                                 23  2'F3 - Exit'
+     A                                      COLOR(BLU)
+     A                                 23 14'F12 - Cancel'
+     A                                      COLOR(BLU)
+     A                                 23 29'Enter - Proceed'
+     A                                      COLOR(BLU)
+     A                                 10 24'Account Number:'
+     A            DT_ACNUM      12Y 0B 10 42DSPATR(UL)
+     A  13                                  DSPATR(PC)
+     A                                      CHECK(FE)
+     A                                      EDTCDE(4)
+     A  53                                  ERRMSG('Invalid Account Number ...'-
+     A                                       56)
+     A            DT_HEADING    25A  O  1 31
+     A          R DDSDTXN                   SFL
+     A*%%TS  SD  20230106  091945  RAM1008     REL-V7R5M0  5770-WDS
+     A  01                                  SFLNXTCHG
+     A            VT_ACNO       12S 0O  6  2
+     A            VT_TNO         6Y 0O  6 16EDTCDE(3)
+     A            VT_TDATE       8Y 0O  6 24EDTCDE(Y)
+     A            VT_TTYPE       2A  O  6 36
+     A            VT_TAMT       10S 0O  6 40
+     A            VT_TIME        8A  O  6 52
+     A            VT_STS         1A  O  6 62
+     A            VT_BRANCH     15A  O  6 65
+     A          R DDSDTXNC                  SFLCTL(DDSDTXN)
+     A*%%TS  SD  20230106  092345  RAM1008     REL-V7R5M0  5770-WDS
+     A                                      SFLSIZ(9999)
+     A                                      SFLPAG(0010)
+     A                                      CA03(03 'Exit')
+     A                                      CA12(12 'Cancel')
+     A                                      OVERLAY
+     A  02                                  SFLDSP
+     A  02                                  SFLDSPCTL
+     A N02                                  SFLCLR
+     A  02                                  SFLEND(*MORE)
+     A                                  1  2USER
+     A                                      COLOR(WHT)
+     A                                  1 72DATE
+     A                                      EDTCDE(Y)
+     A                                      COLOR(WHT)
+     A                                  2 72TIME
+     A                                      COLOR(WHT)
+     A                                  1 30'View Transaction'
+     A                                  5  2'AC-NO'
+     A                                      COLOR(WHT)
+     A                                  5 16'TXN-NO'
+     A                                      COLOR(WHT)
+     A                                  5 40'TXN-AMT'
+     A                                      COLOR(WHT)
+     A                                  5 24'DATE'
+     A                                      COLOR(WHT)
+     A                                  5 52'TIME'
+     A                                      COLOR(WHT)
+     A                                  5 65'TXN-BRANCH'
+     A                                      COLOR(WHT)
+     A                                  3 61'ST'
+     A                                      COLOR(WHT)
+     A                                  4 61'AT'
+     A                                      COLOR(WHT)
+     A                                  5 61'US'
+     A                                      COLOR(WHT)
+     A                                  4 36'TY'
+     A                                      COLOR(WHT)
+     A                                  5 36'PE'
+     A                                      COLOR(WHT)
+     A          R FOOTER
+     A*%%TS  SD  20230106  092345  RAM1008     REL-V7R5M0  5770-WDS
+     A                                      OVERLAY
+     A                                 23  3'F3-Exit'
+     A                                      COLOR(BLU)
+     A                                 23 13'F12-Cancel'
+     A                                      COLOR(BLU)
+     A                                 23 27'Enter-Proceed'
+     A                                      COLOR(BLU)
+     A                                 21  3'Select Option "D" and hit ENTER to-
+     A                                       delete the transactions...'
+     A  32                                  DSPATR(ND)
+     A                                      COLOR(BLU)
+     A          R MSG_WIN
+     A*%%TS  SD  20230102  180519  RAM1008     REL-V7R5M0  5770-WDS
+     A                                      MSGALARM
+     A                                      CLRL(*NO)
+     A                                      OVERLAY
+     A                                      WINDOW(11 18 4 30)
+     A            WINMSG        27A  O  2  3
+     A                                  3  5'Press ENTER To Continue'
+     A                                      COLOR(BLU)
+     A          R DDELTXN                   SFL
+     A*%%TS  SD  20230106  101339  RAM1008     REL-V7R5M0  5770-WDS
+     A  01                                  SFLNXTCHG
+     A            DT_TDATE       8Y 0O  6  6EDTCDE(Y)
+     A            DT_TTYPE       2A  O  6 18
+     A            DT_TAMT       10S 0O  6 22
+     A            DT_BRANCH      7A  O  6 34
+     A            DT_FACNT      12S 0O  6 51
+     A            DT_OPT         1A  B  6  3
+     A            DT_TACNT      12S 0O  6 65
+     A            DT_TNO         5  0O  6 43
+     A          R DDELTXNC                  SFLCTL(DDELTXN)
+     A*%%TS  SD  20230106  101339  RAM1008     REL-V7R5M0  5770-WDS
+     A                                      SFLSIZ(9999)
+     A                                      SFLPAG(0010)
+     A                                      CA03(03 'Exit')
+     A                                      CA12(12 'Cancel')
+     A                                      OVERLAY
+     A  06                                  SFLDSP
+     A  06                                  SFLDSPCTL
+     A N06                                  SFLCLR
+     A  06                                  SFLEND(*MORE)
+     A                                  1  2USER
+     A                                      COLOR(WHT)
+     A                                  1 72DATE
+     A                                      EDTCDE(Y)
+     A                                      COLOR(WHT)
+     A                                  2 72TIME
+     A                                      COLOR(WHT)
+     A                                  5  7'DATE'
+     A                                      COLOR(WHT)
+     A                                  5 51'FROM-ACCOUNT'
+     A                                      COLOR(WHT)
+     A                                  5 22'AMOUNT'
+     A                                      COLOR(WHT)
+     A                                  5 34'BRANCH'
+     A                                      COLOR(WHT)
+     A                                  5  2'Opt'
+     A                                      COLOR(WHT)
+     A                                  1 31'Delete Transactions'
+     A                                  4 18'TY'
+     A                                      COLOR(WHT)
+     A                                  5 18'PE'
+     A                                      COLOR(WHT)
+     A                                  5 65'TO-ACCOUNT'
+     A                                      COLOR(WHT)
+     A                                  5 43'T-NO'
+     A                                      COLOR(WHT)

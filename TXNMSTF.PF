@@ -1,0 +1,15 @@
+                R TC_MSTR
+                  T_ACNUM       15P 0       COLHDG('ACCOUNT NUMBER')
+                  TR_NUM        10P 0       COLHDG('TRANSACTION NUMBER')
+                  TR_TYPE        2A         COLHDG('TRANSACTION TYPE')
+                  TR_AMOUNT     15P 2       COLHDG('TRANSACTION AMOUNT')
+                  TR_DATE        8S         EDTCDE(Y)
+                  TR_TIME        8A
+                  TR_BRANCH     25A         COLHDG('TRANSACTION BRANCH')
+                  F_ACCOUNT     15P 0       COLHDG('FROM ACCOUNT')
+                  T_ACCOUNT     15P 0       COLHDG('TO ACCOUNT')
+                  TR_STATUS      1A         COLHDG('TRANSACTION STATUS')
+                  CR_DATE        8S         EDTCDE(Y)
+                  CR_TIME        8A
+                  C_PGM         10A         COLHDG('CREATION PROGRAM')
+                  C_USER        10A         COLHDG('CREATION USER')

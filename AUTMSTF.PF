@@ -1,0 +1,5 @@
+                R AUTHR
+                  USER_ID        8A         COLHDG('USER ID')
+                  PASSWORD       8A         COLHDG('PASSWORD')
+                  AUTHORITY      1A
+                K USER_ID

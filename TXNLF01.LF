@@ -1,0 +1,4 @@
+                                            LIFO
+                R TC_MSTR                   PFILE(TXNMSTF)
+                K T_ACNUM
+                K TR_NUM
